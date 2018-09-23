@@ -267,7 +267,9 @@ function resetConfig(){
 }
 
 function compareMakeConfigs(){
-	"$kernel_path/scripts/diffconfig" "$kernel_path/synoconfigs/$arch" "$kernel_path/.config"
+	a="${1:-$kernel_path/synoconfigs/$arch}"
+	b="${2:-$kernel_path/.config}"
+	"$kernel_path/scripts/diffconfig" "$a" "$b"
 }
 function menuConfig(){
     cd "$kernel_path"
