@@ -170,7 +170,7 @@ function proccessMod(){
 	loadedMods["$mod"]=true
 	if [[ $2 = true ]];then diskModsSorted+=("$mod")
 	else extraModsSorted+=("$mod");fi
-	cp "$staging_path/compiled_modules/$mod.ko" "$staging_path/extra/usr/lib/modules/"
+	cp "$staging_path/compiled_modules/$mod.ko" "$staging_path/extra/usr/lib/modules/" || true
 	echo "$mod"
 }
 function stageBootloader(){
