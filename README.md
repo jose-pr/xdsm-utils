@@ -1,6 +1,8 @@
 # xdsm-utils
 Xpenology Build and server helper functions
 
+Based on the tutorial at https://xpenology.club/compile-drivers-xpenology-with-windows-10-and-build-in-bash/ I made some helper functions to help with creating the virtio modules but can be used for any other modules.
+
 To use download xdsm-build-utils.sh
 The you can use it as follows:
 #For all commands you can specify
