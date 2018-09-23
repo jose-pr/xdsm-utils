@@ -189,9 +189,12 @@ function downloadSrcFiles(){
     echo "Downloading kernel and toolchain for device ${arch} and DSM version ${version}"
     hashkey="${arch}_${version}"
     mkdir -p "$src_path"
-
+	patchName="${arch}-${version}-modified-jun.patch"
     wget "${kernel_links[$hashkey]}" -O "${kernel_src}"
-    wget "${toolchain_links[$hashkey]}" -O "${toolchain_src}"    
+    wget "${toolchain_links[$hashkey]}" -O "${toolchain_src}" 
+	wget "https://raw.githubusercontent.com/jose-pr/xdsm-utils/master/$patchName" -O "$src_path/$patchName"
+	wget "https://raw.githubusercontent.com/jose-pr/xdsm-utils/master/xdsm-utils.sh" -O "$src_path/xdsm-utils.sh"
+	wget "https://raw.githubusercontent.com/jose-pr/xdsm-utils/master/install.sh" -O "$src_path/install.sh"
 }
 function prepareStagingArea(){
     rm -R "$staging_path" 2>/dev/null || true
@@ -276,3 +279,7 @@ func="${args[0]}"
 echo "path is :$base_path arch:$arch version:$version action:$func"
 "$func" "${args[1]}" "${args[2]}"
 echo "Finished"
+
+
+
+
